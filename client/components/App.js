@@ -1,20 +1,14 @@
 import React from 'react';
 
+import { Dashboard } from './dashboard/Dashboard';
+import { Keypad } from './keypad/Keypad';
+
 class App extends React.Component {
   render() {
     return (
       <main className="main">
-        <div className="dashboard">
-          <div className="brand">
-            <h2>Casio</h2>
-          </div>
-          <div className="solar"></div>
-          <div className="screen-wrap">
-            <div className="screen">
-            </div>
-          </div>
-        </div>
-        <div className="buttons"></div>
+        <Dashboard />
+        <Keypad />
       </main>
     );
   }
