@@ -1,15 +1,14 @@
 .keypad{
-  // background-color: deepskyblue;
   margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 0.75rem 0.5rem;
+  grid-gap: 0.7rem 0.45rem;
 
   .model {
     margin: 0;
     grid-column: 1 / 4;
     align-self: center;
-    padding-left: 1.5rem;
+    padding-left: 1.25rem;
   }
 
   .button {
