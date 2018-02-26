@@ -1,37 +1,160 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export class Keypad extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  // }
+
+  handleButton = (event) => {
+    console.clear();
+    console.log(event);
+    console.log(event.target);
+    console.log(event.target.name);
+    console.log(typeof event.target.name);
+    console.log(this);
+    console.log(this.props);
+  }
+
   render () {
     return (
       <div className="keypad">
         <h5 className="model">SL-300SV</h5>
-        <a className="button">√</a>
-        <a className="button">OFF</a>
-        <a className="button">MC</a>
-        <a className="button">MR</a>
-        <a className="button">M-</a>
-        <a className="button">M+</a>
-        <a className="button">/</a>
-        <a className="button">%</a>
-        <a className="button">7</a>
-        <a className="button">8</a>
-        <a className="button">9</a>
-        <a className="button">*</a>
-        <a className="button">+/-</a>
-        <a className="button">4</a>
-        <a className="button">5</a>
-        <a className="button">6</a>
-        <a className="button">-</a>
-        <a className="button primary">C</a>
-        <a className="button">1</a>
-        <a className="button">2</a>
-        <a className="button">3</a>
-        <a className="button plus">+</a>
-        <a className="button primary">AC</a>
-        <a className="button">0</a>
-        <a className="button">.</a>
-        <a className="button">=</a>
+        <a
+          className="button"
+          name="√"
+          onClick={this.handleButton}
+          >√</a>
+        <a
+          className="button"
+          name="OFF"
+          onClick={this.handleButton}
+          >OFF</a>
+        <a
+          className="button"
+          name="MC"
+          onClick={this.handleButton}
+          >MC</a>
+        <a
+          className="button"
+          name="MR"
+          onClick={this.handleButton}
+          >MR</a>
+        <a
+          className="button"
+          name="M-"
+          onClick={this.handleButton}
+          >M-</a>
+        <a
+          className="button"
+          name="M+"
+          onClick={this.handleButton}
+          >M+</a>
+        <a
+          className="button"
+          name="/"
+          onClick={this.handleButton}
+          >/</a>
+        <a
+          className="button"
+          name="%"
+          onClick={this.handleButton}
+          >%</a>
+        <a
+          className="button"
+          name="7"
+          onClick={this.handleButton}
+          >7</a>
+        <a
+          className="button"
+          name="8"
+          onClick={this.handleButton}
+          >8</a>
+        <a
+          className="button"
+          name="9"
+          onClick={this.handleButton}
+          >9</a>
+        <a
+          className="button"
+          name="*"
+          onClick={this.handleButton}
+          >*</a>
+        <a
+          className="button"
+          name="+/-"
+          onClick={this.handleButton}
+          >+/-</a>
+        <a
+          className="button"
+          name="4"
+          onClick={this.handleButton}
+          >4</a>
+        <a
+          className="button"
+          name="5"
+          onClick={this.handleButton}
+          >5</a>
+        <a
+          className="button"
+          name="6"
+          onClick={this.handleButton}
+          >6</a>
+        <a
+          className="button"
+          name=">-"
+          onClick={this.handleButton}
+          >-</a>
+        <a
+          className="button primary"
+          name="C"
+          onClick={this.handleButton}
+          >C</a>
+        <a
+          className="button"
+          name="on"
+          onClick={this.handleButton}
+          >1</a>
+        <a
+          className="button"
+          name="2"
+          onClick={this.handleButton}
+          >2</a>
+        <a
+          className="button"
+          name="3"
+          onClick={this.handleButton}
+          >3</a>
+        <a
+          className="button plus"
+          name="+"
+          onClick={this.handleButton}
+          >+</a>
+        <a
+          className="button primary"
+          name="AC"
+          onClick={this.handleButton}
+          >AC</a>
+        <a
+          className="button"
+          name="0"
+          onClick={this.handleButton}
+          >0</a>
+        <a
+          className="button"
+          name="."
+          onClick={this.handleButton}
+          >.</a>
+        <a
+          className="button"
+          name="="
+          onClick={this.handleButton}
+          >=</a>
       </div>
     );
   }
+}
+
+Keypad.propTypes = {
+  name: PropTypes.string
 }
