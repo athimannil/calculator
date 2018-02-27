@@ -2,28 +2,43 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export class Keypad extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      current: '',
+      total: 0,
+      operator: ''
+    }
+  }
 
   handleButton = (event) => {
     console.clear();
     console.log(event);
     console.log(event.target);
-    console.log(event.target.name);
+    console.log(event.target.name, event.target.name, event.target.name);
     console.log(typeof event.target.name);
     console.log(this);
     console.log(this.props);
+    const current = Number(event.target.name);
+    console.log(typeof current);
+    this.setState({
+      current: current
+    });
+    this.props.selectedValue(current);
+  }
+
+  handleOperation = (event) => {
+    console.log(event.target.name);
   }
 
   render () {
     return (
       <div className="keypad">
-        <h5 className="model">SL-300SV</h5>
+        <h5 className="model">SL-300SV - <span>{this.state.current}</span></h5>
         <a
           className="button"
           name="√"
-          onClick={this.handleButton}
+          onClick={this.handleOperation}
           >√</a>
         <a
           className="button"
@@ -53,12 +68,12 @@ export class Keypad extends React.Component {
         <a
           className="button"
           name="/"
-          onClick={this.handleButton}
+          onClick={this.handleOperation}
           >/</a>
         <a
           className="button"
           name="%"
-          onClick={this.handleButton}
+          onClick={this.handleOperation}
           >%</a>
         <a
           className="button"
@@ -78,12 +93,12 @@ export class Keypad extends React.Component {
         <a
           className="button"
           name="*"
-          onClick={this.handleButton}
+          onClick={this.handleOperation}
           >*</a>
         <a
           className="button"
           name="+/-"
-          onClick={this.handleButton}
+          onClick={this.handleOperation}
           >+/-</a>
         <a
           className="button"
@@ -103,7 +118,7 @@ export class Keypad extends React.Component {
         <a
           className="button"
           name=">-"
-          onClick={this.handleButton}
+          onClick={this.handleOperation}
           >-</a>
         <a
           className="button primary"
@@ -112,7 +127,7 @@ export class Keypad extends React.Component {
           >C</a>
         <a
           className="button"
-          name="on"
+          name={"1"}
           onClick={this.handleButton}
           >1</a>
         <a
@@ -128,7 +143,7 @@ export class Keypad extends React.Component {
         <a
           className="button plus"
           name="+"
-          onClick={this.handleButton}
+          onClick={this.handleOperation}
           >+</a>
         <a
           className="button primary"
@@ -148,7 +163,7 @@ export class Keypad extends React.Component {
         <a
           className="button"
           name="="
-          onClick={this.handleButton}
+          onClick={this.handleOperation}
           >=</a>
       </div>
     );

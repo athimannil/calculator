@@ -10,6 +10,7 @@ export class Dashboard extends React.Component {
         <div className="solar"></div>
         <div className="screen-wrap">
           <div className="screen">
+            <h2>{this.props.value}</h2>
           </div>
         </div>
       </div>
