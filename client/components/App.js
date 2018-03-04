@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Dashboard } from './dashboard/Dashboard';
 import { Keypad } from './keypad/Keypad';
+import calculate from '../logic/calculate';
 
 class App extends React.Component {
   constructor(props) {
@@ -9,21 +10,24 @@ class App extends React.Component {
     this.state = {
       total: null,
       next: null,
-      operation: null,
+      operation: null
     };
   }
 
-  kooy = (clickedOne) => {
-    this.setState({
-      current: clickedOne
-    });
+  handleClick = (buttonName) => {
+    this.setState(calculate(this.state, buttonName));
   }
 
   render() {
     return (
       <main className="main">
-        <Dashboard value={this.state.current} />
-        <Keypad selectedValue={this.kooy} />
+        <Dashboard
+          value={this.state.next || this.state.total || '0'}
+        />
+
+        <Keypad
+          selectedValue={this.handleClick}
+        />
       </main>
     );
   }
