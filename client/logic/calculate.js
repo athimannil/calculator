@@ -1,5 +1,4 @@
 import operate from './operate';
-import isNumber from './isNumber';
 
 /**
  * Given a button name and a calculator data object, return an updated
@@ -11,7 +10,7 @@ import isNumber from './isNumber';
  *   operation:String  +, -, etc.
  */
 export default function calculate(obj, buttonName) {
-  if (buttonName === 'AC') {
+  if (buttonName === 'AC' || buttonName === 'C') {
     return {
       total: null,
       next: null,
@@ -19,7 +18,7 @@ export default function calculate(obj, buttonName) {
     };
   }
 
-  if (isNumber(buttonName)) {
+  if (/[0-9]+/.test(buttonName)) {
     if (buttonName === '0' && obj.next === '0') {
       return {};
     }
@@ -85,6 +84,24 @@ export default function calculate(obj, buttonName) {
     return {};
   }
 
+  if (buttonName === '√') {
+    if (obj.next) {
+      return {
+        total: operate(obj.next, obj.next, buttonName),
+        next: null,
+        operation: buttonName,
+      };
+    }
+  }
+
+  if (buttonName === 'OFF') {
+    console.log(buttonName);
+    return {
+      total: null,
+      next: null,
+      operation: null,
+    };
+  }
   // Button must be an operation
 
   // When the user presses an operation button without having entered
