@@ -8,6 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      machineOn: false,
       total: null,
       next: null,
       operation: null,
@@ -23,6 +24,7 @@ class App extends React.Component {
     return (
       <main className="main">
         <Dashboard
+          machine={this.state.machineOn}
           value={this.state.next || this.state.total || '0'}
         />
 

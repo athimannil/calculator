@@ -1,8 +1,20 @@
 import operate from './operate';
 
 export default function calculate(obj, buttonName) {
+  if (buttonName === 'OFF') {
+    console.log('I am here ');
+    return {
+      machineOn: false,
+      total: null,
+      next: null,
+      operation: null,
+      memory: null
+    };
+  }
+
   if (buttonName === 'AC') {
     return {
+      machineOn: true,
       total: null,
       next: null,
       operation: null,
@@ -132,7 +144,6 @@ export default function calculate(obj, buttonName) {
       return {};
     }
   }
-
 
   if (obj.operation) {
     return {

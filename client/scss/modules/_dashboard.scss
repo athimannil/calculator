@@ -44,13 +44,15 @@
 .screen {
   height: 5rem;
   text-align: right;
-  // direction: rtl;
   overflow: hidden;
   background-color: $screen-color;
   border-radius: 0.375em;
   box-shadow: inset 1px 2px 4px #000000,
               inset -1px 0px 4px #000000,
               inset 0px -1px 4px #000000;
+  &-off {
+    background-color: #333;
+  }
   h2 {
     margin: 0;
     padding: 0.5rem;

@@ -9,7 +9,7 @@ export class Dashboard extends React.Component {
         </div>
         <div className="solar"></div>
         <div className="screen-wrap">
-          <div className="screen">
+          <div className={`screen screen${this.props.machine  ? '-on' : '-off'}`}>
             <h2>{this.props.value}</h2>
           </div>
         </div>
