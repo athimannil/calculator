@@ -10,11 +10,20 @@ import operate from './operate';
  *   operation:String  +, -, etc.
  */
 export default function calculate(obj, buttonName) {
-  if (buttonName === 'AC' || buttonName === 'C') {
+  if (buttonName === 'AC') {
     return {
       total: null,
       next: null,
       operation: null,
+      memory: null
+    };
+  }
+
+  if (buttonName === 'C') {
+    return {
+      total: null,
+      next: null,
+      operation: null
     };
   }
 
@@ -95,13 +104,36 @@ export default function calculate(obj, buttonName) {
   }
 
   if (buttonName === 'OFF') {
-    console.log(buttonName);
     return {
       total: null,
       next: null,
       operation: null,
     };
   }
+
+  if (buttonName === 'MC') {
+    return {
+      memory: null
+    };
+  }
+  if (buttonName === 'MR') {
+    return {
+      next: obj.memory
+    };
+  }
+  if (buttonName === 'M-') {
+    return {
+      memory: Number(obj.memory) - Number(obj.total)
+    };
+  }
+  if (buttonName === 'M+') {
+    return {
+      memory: Number(obj.memory) + Number(obj.total)
+    };
+  }
+
+
+
   // Button must be an operation
 
   // When the user presses an operation button without having entered
