@@ -21,4 +21,4 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, './index.html'));
 });
 
-app.listen(8080, () => console.log('Server runs on localhost:3000'));
+app.listen(3000, () => console.log('Server runs on localhost:3000'));
