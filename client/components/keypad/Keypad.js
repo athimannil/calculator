@@ -21,12 +21,12 @@ export class Keypad extends React.Component {
       <div className="keypad">
         <h5 className="model">SL-300SV</h5>
         <a
-          className="button"
+          className="button button-mini"
           name="√"
           onClick={this.handleButton}
           >√</a>
         <a
-          className="button"
+          className="button button-mini"
           name="OFF"
           onClick={this.handleButton}
           >OFF</a>
@@ -106,7 +106,7 @@ export class Keypad extends React.Component {
           onClick={this.handleButton}
           >–</a>
         <a
-          className="button primary"
+          className="button button-primary"
           name="C"
           onClick={this.handleButton}
           >C</a>
@@ -126,12 +126,12 @@ export class Keypad extends React.Component {
           onClick={this.handleButton}
           >3</a>
         <a
-          className="button plus"
+          className="button button-plus"
           name="+"
           onClick={this.handleButton}
           >+</a>
         <a
-          className="button primary"
+          className="button button-primary button-ac"
           name="AC"
           onClick={this.handleButton}
           >AC</a>
