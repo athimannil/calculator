@@ -1,14 +1,5 @@
 import operate from './operate';
 
-/**
- * Given a button name and a calculator data object, return an updated
- * calculator data object.
- *
- * Calculator data object contains:
- *   total:s      the running total
- *   next:String       the next number to be operated on with the total
- *   operation:String  +, -, etc.
- */
 export default function calculate(obj, buttonName) {
   if (buttonName === 'AC') {
     return {
@@ -31,14 +22,12 @@ export default function calculate(obj, buttonName) {
     if (buttonName === '0' && obj.next === '0') {
       return {};
     }
-    // If there is an operation, update next
     if (obj.operation) {
       if (obj.next) {
         return { next: obj.next + buttonName };
       }
       return { next: buttonName };
     }
-    // If there is no operation, update next and clear the value
     if (obj.next) {
       return {
         next: obj.next + buttonName,
@@ -78,7 +67,7 @@ export default function calculate(obj, buttonName) {
         operation: null,
       };
     } else {
-      // '=' with no operation, nothing to do
+
       return {};
     }
   }
@@ -117,32 +106,34 @@ export default function calculate(obj, buttonName) {
     };
   }
   if (buttonName === 'MR') {
-    return {
-      next: obj.memory
-    };
+    if (obj.total) {
+      return {
+        next: Number(obj.total)
+      };
+    } else {
+      return {};
+    }
   }
   if (buttonName === 'M-') {
-    return {
-      memory: Number(obj.memory) - Number(obj.total)
-    };
+    if (obj.total) {
+      return {
+        memory: Number(obj.memory) - Number(obj.total)
+      };
+    } else {
+      return {};
+    }
   }
   if (buttonName === 'M+') {
-    return {
-      memory: Number(obj.memory) + Number(obj.total)
-    };
+    if (obj.total) {
+      return {
+        memory: Number(obj.memory) + Number(obj.total)
+      };
+    } else {
+      return {};
+    }
   }
 
 
-
-  // Button must be an operation
-
-  // When the user presses an operation button without having entered
-  // a number first, do nothing.
-  // if (!obj.next && !obj.total) {
-  //   return {};
-  // }
-
-  // User pressed an operation button and there is an existing operation
   if (obj.operation) {
     return {
       total: operate(obj.total, obj.next, obj.operation),
@@ -151,14 +142,10 @@ export default function calculate(obj, buttonName) {
     };
   }
 
-  // no operation yet, but the user typed one
-
-  // The user hasn't typed a number yet, just save the operation
   if (!obj.next) {
     return { operation: buttonName };
   }
 
-  // save the operation and shift 'next' into 'total'
   return {
     total: obj.next,
     next: null,
