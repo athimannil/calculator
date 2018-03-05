@@ -13,15 +13,13 @@ export class Keypad extends React.Component {
 
   handleButton = (event) => {
     const currentNumber = event.target.name;
-    // console.log(this.state);
-    // this.props.selectedValue(this.state);
     this.props.selectedValue(currentNumber);
   }
 
   render () {
     return (
       <div className="keypad">
-        <h5 className="model">SL-300SV - <span>{this.state.current}</span></h5>
+        <h5 className="model">SL-300SV</h5>
         <a
           className="button"
           name="√"
